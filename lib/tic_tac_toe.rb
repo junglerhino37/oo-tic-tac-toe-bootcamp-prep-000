@@ -24,6 +24,15 @@ def display_board
 end
 
 
+  def turn_count
+    @board.count{|token| token == "X" || token == "O"}
+  end
+
+def current_player
+  turn_count%2==0 ? "X":"O"
+end
+
+
 def input_to_index(pos)
   pos.to_i-1
 end
@@ -52,13 +61,6 @@ def turn(board)
   end
 end
 
-  def turn_count
-    @board.count{|token| token == "X" || token == "O"}
-  end
-
-def current_player
-  turn_count%2==0 ? "X":"O"
-end
 
 
 end
