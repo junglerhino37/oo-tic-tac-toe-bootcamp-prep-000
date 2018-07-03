@@ -65,7 +65,7 @@ def won?
   players=["X","O"]
   WIN_COMBINATIONS.each do|combination|
     players.each do|player|
-      if (board[combination[0]]===player && board[combination[1]]===player && board[combination[2]]===player )
+      if (@board[combination[0]]===player && @board[combination[1]]===player && @board[combination[2]]===player )
         return combination
       end
     end
@@ -73,23 +73,23 @@ def won?
   return false
 end
 
-def full?(board)
-  num_positions=board.select do|positions|
+def full?
+  num_positions=@board.select do|positions|
     positions=="X"||positions=="O"
   end
   num_positions.length==9 ? true :false
 end
 
-def draw?(board)
-  full?(board)&&!won?(board) ? true : false
+def draw?
+  full?&&!won? ? true : false
 end
   
-def over?(board)  
-  draw?(board)||won?(board) ? true : false 
+def over?  
+  draw?||won? ? true : false 
 end
 
-def winner(board)
-  won?(board).kind_of?(Array) ? board[won?(board)[0]] : nil
+def winner
+  won?.kind_of?(Array) ? @board[won?[0]] : nil
 end
 
 end
