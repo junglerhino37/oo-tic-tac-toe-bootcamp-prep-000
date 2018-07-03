@@ -52,9 +52,9 @@ def turn(board)
   end
 end
 
-def turn_count(board)
+def turn_count
   turn=0  
-  board.each do|spot|
+  @board.each do|spot|
     if (spot.strip=="X" || spot.strip=="O"||spot.strip=="x" || spot.strip=="o")
       turn+=1
     end
@@ -63,7 +63,7 @@ return turn
 end
 
 def current_player
-  turn_count(@board)%2==0 ? "X":"O"
+  turn_count%2==0 ? "X":"O"
 end
 
 
