@@ -24,4 +24,47 @@ def display_board
 end
 
 
+def input_to_index(pos)
+  pos.to_i-1
+end
+
+def move(board, index, player)
+  board[index] = player
+end
+
+def position_taken?(board, location)
+  board[location] != " " && board[location] != ""
+end
+  
+def valid_move?(board, index)
+  index.between?(0,8) && !position_taken?(board, index)
+end
+
+def turn(board)
+  puts "Please enter 1-9:"
+  input = gets.strip
+  index = input_to_index(input)
+  if valid_move?(board, index)
+    move(board, index,current_player(board))
+    display_board(board)
+  else
+    turn(board)
+  end
+end
+
+def turn_count(board)
+  turn=0  
+  board.each do|spot|
+    if (spot.strip=="X" || spot.strip=="O"||spot.strip=="x" || spot.strip=="o")
+      turn+=1
+    end
+  end
+return turn
+end
+
+def current_player
+  turn_count(@board)%2==0 ? "X":"O"
+end
+
+
 end
