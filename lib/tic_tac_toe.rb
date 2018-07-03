@@ -92,4 +92,14 @@ def winner
   won?.kind_of?(Array) ? @board[won?[0]] : nil
 end
 
+def play
+  while !over?
+    turn
+  end
+    if won?
+      puts "Congratulations #{winner}!" 
+    elsif draw?
+      puts "Cat's Game!"
+    end  
+  
 end
