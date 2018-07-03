@@ -14,7 +14,14 @@ WIN_COMBINATIONS=[
   [2,4,6]
   ]
 
-  def 
+def display_board(board)
+  rows=["","",""]
+  line=["-----------"]
+  rows.each_with_index do|pos,index|
+    rows[index]=" #{board[rows.length*index]} | #{board[rows.length*index+1]} | #{board[rows.length*index+2]} "
+  end
+  puts [rows[0],line,rows[1],line,rows[2]]
+end
 
 
 end
